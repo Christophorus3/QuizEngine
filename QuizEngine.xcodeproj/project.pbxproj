@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9EF615FB2425695A00CEB7A2 /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF615F12425695A00CEB7A2 /* QuizEngine.framework */; };
-		9EF616002425695A00CEB7A2 /* QuizEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF615FF2425695A00CEB7A2 /* QuizEngineTests.swift */; };
-		9EF616022425695A00CEB7A2 /* QuizEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EF615F42425695A00CEB7A2 /* QuizEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EF6160D24256A1300CEB7A2 /* FlowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6160C24256A1300CEB7A2 /* FlowTest.swift */; };
+		9EF6160F24256BC100CEB7A2 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6160E24256BC100CEB7A2 /* Flow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +24,12 @@
 
 /* Begin PBXFileReference section */
 		9EF615F12425695A00CEB7A2 /* QuizEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuizEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9EF615F42425695A00CEB7A2 /* QuizEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizEngine.h; sourceTree = "<group>"; };
 		9EF615F52425695A00CEB7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EF615FA2425695A00CEB7A2 /* QuizEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9EF615FF2425695A00CEB7A2 /* QuizEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizEngineTests.swift; sourceTree = "<group>"; };
 		9EF616012425695A00CEB7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EF6160B24256A1300CEB7A2 /* QuizEngineTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuizEngineTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		9EF6160C24256A1300CEB7A2 /* FlowTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTest.swift; sourceTree = "<group>"; };
+		9EF6160E24256BC100CEB7A2 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +72,8 @@
 		9EF615F32425695A00CEB7A2 /* QuizEngine */ = {
 			isa = PBXGroup;
 			children = (
-				9EF615F42425695A00CEB7A2 /* QuizEngine.h */,
 				9EF615F52425695A00CEB7A2 /* Info.plist */,
+				9EF6160E24256BC100CEB7A2 /* Flow.swift */,
 			);
 			path = QuizEngine;
 			sourceTree = "<group>";
@@ -80,8 +81,9 @@
 		9EF615FE2425695A00CEB7A2 /* QuizEngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				9EF615FF2425695A00CEB7A2 /* QuizEngineTests.swift */,
 				9EF616012425695A00CEB7A2 /* Info.plist */,
+				9EF6160C24256A1300CEB7A2 /* FlowTest.swift */,
+				9EF6160B24256A1300CEB7A2 /* QuizEngineTests-Bridging-Header.h */,
 			);
 			path = QuizEngineTests;
 			sourceTree = "<group>";
@@ -93,7 +95,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EF616022425695A00CEB7A2 /* QuizEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,9 +149,11 @@
 				TargetAttributes = {
 					9EF615F02425695A00CEB7A2 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					9EF615F92425695A00CEB7A2 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF6160F24256BC100CEB7A2 /* Flow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EF616002425695A00CEB7A2 /* QuizEngineTests.swift in Sources */,
+				9EF6160D24256A1300CEB7A2 /* FlowTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +344,7 @@
 		9EF616062425695A00CEB7A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -359,6 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = at.ccomp.QuizEngine;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -366,6 +372,7 @@
 		9EF616072425695A00CEB7A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -392,6 +399,8 @@
 		9EF616092425695A00CEB7A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = K6YDQ7N662;
@@ -403,6 +412,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = at.ccomp.QuizEngineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuizEngineTests/QuizEngineTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -410,6 +421,8 @@
 		9EF6160A2425695A00CEB7A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = K6YDQ7N662;
@@ -421,6 +434,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = at.ccomp.QuizEngineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuizEngineTests/QuizEngineTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
