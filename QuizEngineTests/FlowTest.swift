@@ -12,10 +12,11 @@ import XCTest
 
 class FlowTest: XCTestCase {
     
-    func testStartWithNoQuestions() {
+    func testNoQuestionsNoRouting() {
         
         let router = RouterSpy()
-        let sut = Flow(router: router)
+        let sut = Flow(questions: [],
+                       router: router)
         
         sut.start()
         
@@ -23,7 +24,52 @@ class FlowTest: XCTestCase {
         
     }
     
+    func testOneQuestionRouteToQuestion() {
+
+        let router = RouterSpy()
+        let questions = ["Q1"]
+        let sut = Flow(questions: questions,
+                       router: router)
+
+        sut.start()
+
+        XCTAssertEqual(router.routedQuestionCount, 1)
+
+    }
+    
+    func testOneQuestionRouteToCorrectQuestion() {
+        
+        let router = RouterSpy()
+        let questions = ["Q1"]
+        let sut = Flow(questions: questions,
+                       router: router)
+        
+        sut.start()
+        
+        XCTAssertEqual(router.routedQuestion, "Q1")
+        
+    }
+    
+    func testOneQuestionRouteToCorrectQuestion2() {
+        
+        let router = RouterSpy()
+        let questions = ["Q2"]
+        let sut = Flow(questions: questions,
+                       router: router)
+        
+        sut.start()
+        
+        XCTAssertEqual(router.routedQuestion, "Q2")
+        
+    }
+    
     class RouterSpy: Router {
         var routedQuestionCount: Int = 0
+        var routedQuestion: String?
+        
+        func routeTo(question: String) {
+            routedQuestionCount += 1
+            routedQuestion = question
+        }
     }
 }
