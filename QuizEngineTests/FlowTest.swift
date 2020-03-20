@@ -20,23 +20,10 @@ class FlowTest: XCTestCase {
         
         sut.start()
         
-        XCTAssertEqual(router.routedQuestionCount, 0)
+        XCTAssertTrue(router.routedQuestions.isEmpty)
         
     }
-    
-    func testOneQuestionRouteToQuestion() {
 
-        let router = RouterSpy()
-        let questions = ["Q1"]
-        let sut = Flow(questions: questions,
-                       router: router)
-
-        sut.start()
-
-        XCTAssertEqual(router.routedQuestionCount, 1)
-
-    }
-    
     func testOneQuestionRouteToCorrectQuestion() {
         
         let router = RouterSpy()
@@ -46,7 +33,7 @@ class FlowTest: XCTestCase {
         
         sut.start()
         
-        XCTAssertEqual(router.routedQuestion, "Q1")
+        XCTAssertEqual(router.routedQuestions, ["Q1"])
         
     }
     
@@ -59,17 +46,42 @@ class FlowTest: XCTestCase {
         
         sut.start()
         
-        XCTAssertEqual(router.routedQuestion, "Q2")
+        XCTAssertEqual(router.routedQuestions, ["Q2"])
+        
+    }
+    
+    func testTwoQuestionsRouteToFirstQuestion() {
+        
+        let router = RouterSpy()
+        let questions = ["Q1", "Q2"]
+        let sut = Flow(questions: questions,
+                       router: router)
+        
+        sut.start()
+        
+        XCTAssertEqual(router.routedQuestions, ["Q1"])
+        
+    }
+    
+    func testStartTwiceTwoQuestionsRouteToFirstQuestion() {
+        
+        let router = RouterSpy()
+        let questions = ["Q1", "Q2"]
+        let sut = Flow(questions: questions,
+                       router: router)
+        
+        sut.start()
+        sut.start()
+        
+        XCTAssertEqual(router.routedQuestions, ["Q1", "Q1"])
         
     }
     
     class RouterSpy: Router {
-        var routedQuestionCount: Int = 0
-        var routedQuestion: String?
+        var routedQuestions: [String] = []
         
         func routeTo(question: String) {
-            routedQuestionCount += 1
-            routedQuestion = question
+            routedQuestions.append(question)
         }
     }
 }
