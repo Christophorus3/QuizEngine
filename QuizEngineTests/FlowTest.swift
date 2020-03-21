@@ -13,7 +13,6 @@ import XCTest
 class FlowTest: XCTestCase {
     
     func testNoQuestionsNoRouting() {
-        
         let router = RouterSpy()
         let sut = Flow(questions: [],
                        router: router)
@@ -21,11 +20,9 @@ class FlowTest: XCTestCase {
         sut.start()
         
         XCTAssertTrue(router.routedQuestions.isEmpty)
-        
     }
 
     func testOneQuestionRouteToCorrectQuestion() {
-        
         let router = RouterSpy()
         let questions = ["Q1"]
         let sut = Flow(questions: questions,
@@ -34,11 +31,9 @@ class FlowTest: XCTestCase {
         sut.start()
         
         XCTAssertEqual(router.routedQuestions, ["Q1"])
-        
     }
     
     func testOneQuestionRouteToCorrectQuestion2() {
-        
         let router = RouterSpy()
         let questions = ["Q2"]
         let sut = Flow(questions: questions,
@@ -47,11 +42,9 @@ class FlowTest: XCTestCase {
         sut.start()
         
         XCTAssertEqual(router.routedQuestions, ["Q2"])
-        
     }
     
     func testTwoQuestionsRouteToFirstQuestion() {
-        
         let router = RouterSpy()
         let questions = ["Q1", "Q2"]
         let sut = Flow(questions: questions,
@@ -60,11 +53,9 @@ class FlowTest: XCTestCase {
         sut.start()
         
         XCTAssertEqual(router.routedQuestions, ["Q1"])
-        
     }
     
     func testStartTwiceTwoQuestionsRouteToFirstQuestion() {
-        
         let router = RouterSpy()
         let questions = ["Q1", "Q2"]
         let sut = Flow(questions: questions,
@@ -74,14 +65,27 @@ class FlowTest: XCTestCase {
         sut.start()
         
         XCTAssertEqual(router.routedQuestions, ["Q1", "Q1"])
+    }
+    
+    func testStartWithAnserTwoQuestionsRouteToSecondQuestion() {
+        let router = RouterSpy()
+        let questions = ["Q1", "Q2"]
+        let sut = Flow(questions: questions,
+                       router: router)
+        sut.start()
         
+        router.answerCallback("A1")
+        
+        XCTAssertEqual(router.routedQuestions, ["Q1", "Q2"])
     }
     
     class RouterSpy: Router {
         var routedQuestions: [String] = []
+        var answerCallback: AnswerCallback = { _ in }
         
-        func routeTo(question: String) {
+        func routeTo(question: String, answerCallback: @escaping AnswerCallback) {
             routedQuestions.append(question)
+            self.answerCallback = answerCallback
         }
     }
 }
