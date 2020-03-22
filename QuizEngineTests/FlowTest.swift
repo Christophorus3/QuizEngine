@@ -88,6 +88,13 @@ class FlowTest: XCTestCase {
         XCTAssertEqual(router.routedResults!, [:])
     }
     
+    func testOneQuestionsRouteToNoResult() {
+        let sut = makeSUT(questions: ["Q1"])
+        sut.start()
+        
+        XCTAssertNil(router.routedResults)
+    }
+    
     func testTwoQuestionsRouteToResult() {
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
@@ -96,6 +103,15 @@ class FlowTest: XCTestCase {
         router.answerCallback("A2")
         
         XCTAssertEqual(router.routedResults!, ["Q1": "A1", "Q2": "A2"])
+    }
+    
+    func testTwoQuestionsAnswerOneRouteToNoResult() {
+        let sut = makeSUT(questions: ["Q1", "Q2"])
+        sut.start()
+        
+        router.answerCallback("A1")
+        
+        XCTAssertNil(router.routedResults)
     }
     
     // MARK: - Helpers
