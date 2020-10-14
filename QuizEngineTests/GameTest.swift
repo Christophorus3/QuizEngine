@@ -15,9 +15,11 @@ class GameTest: XCTestCase {
     let router = RouterSpy()
     var game: Game<String, String, RouterSpy>!
     
-    func testStartGameZeroOfTwoCorrectAnswersScoresZero() {
+    override func setUp() {
         game = startGame(questions: ["Q1", "Q2"], router: router, correctAnswers: ["Q1": "A1", "Q2": "A2"])
-        
+    }
+    
+    func testStartGameZeroOfTwoCorrectAnswersScoresZero() {
         router.answerCallback("wrong")
         router.answerCallback("wrong")
         
@@ -25,8 +27,6 @@ class GameTest: XCTestCase {
     }
     
     func testStartGameOneOfTwoCorrectAnswersScoresOne() {
-        game = startGame(questions: ["Q1", "Q2"], router: router, correctAnswers: ["Q1": "A1", "Q2": "A2"])
-        
         router.answerCallback("A1")
         router.answerCallback("wrong")
         
@@ -34,8 +34,6 @@ class GameTest: XCTestCase {
     }
     
     func testStartGameTwoOfTwoCorrectAnswersScoresTwo() {
-        game = startGame(questions: ["Q1", "Q2"], router: router, correctAnswers: ["Q1": "A1", "Q2": "A2"])
-        
         router.answerCallback("A1")
         router.answerCallback("A2")
         
