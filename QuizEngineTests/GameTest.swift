@@ -10,15 +10,35 @@ import Foundation
 import XCTest
 import QuizEngine
 
-class GameTest: XCTest {
+class GameTest: XCTestCase {
+    
+    let router = RouterSpy()
+    var game: Game<String, String, RouterSpy>!
+    
+    func testStartGameZeroOfTwoCorrectAnswersScoresZero() {
+        game = startGame(questions: ["Q1", "Q2"], router: router, correctAnswers: ["Q1": "A1", "Q2": "A2"])
+        
+        router.answerCallback("wrong")
+        router.answerCallback("wrong")
+        
+        XCTAssertEqual(router.routedResults!.score, 0)
+    }
     
     func testStartGameOneOfTwoCorrectAnswersScoresOne() {
-        let router = RouterSpy()
-        _ = startGame(questions: ["Q1", "Q2"], router: router, correctAnswers: ["Q1": "A1", "Q2": "A2"])
+        game = startGame(questions: ["Q1", "Q2"], router: router, correctAnswers: ["Q1": "A1", "Q2": "A2"])
         
         router.answerCallback("A1")
         router.answerCallback("wrong")
         
         XCTAssertEqual(router.routedResults!.score, 1)
+    }
+    
+    func testStartGameTwoOfTwoCorrectAnswersScoresTwo() {
+        game = startGame(questions: ["Q1", "Q2"], router: router, correctAnswers: ["Q1": "A1", "Q2": "A2"])
+        
+        router.answerCallback("A1")
+        router.answerCallback("A2")
+        
+        XCTAssertEqual(router.routedResults!.score, 2)
     }
 }
