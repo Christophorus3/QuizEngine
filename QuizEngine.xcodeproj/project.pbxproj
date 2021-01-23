@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E5C7A8725BC774D002EDF70 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C7A8625BC774C002EDF70 /* Question.swift */; };
+		9E5C7A8825BC7758002EDF70 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C7A8625BC774C002EDF70 /* Question.swift */; };
+		9E5C7A8A25BC790B002EDF70 /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C7A8925BC790B002EDF70 /* QuestionTests.swift */; };
+		9E5C7A8B25BC790B002EDF70 /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C7A8925BC790B002EDF70 /* QuestionTests.swift */; };
 		9E9D702E25379F5E009DFB01 /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9D702525379F5E009DFB01 /* QuizEngine.framework */; };
 		9E9D703C2537A0BB009DFB01 /* FlowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6160C24256A1300CEB7A2 /* FlowTest.swift */; };
 		9E9D703D2537A0BB009DFB01 /* GameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECA7FC12523C93A009E592B /* GameTest.swift */; };
@@ -43,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E5C7A8625BC774C002EDF70 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		9E5C7A8925BC790B002EDF70 /* QuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTests.swift; sourceTree = "<group>"; };
 		9E9D702525379F5E009DFB01 /* QuizEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuizEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9D702D25379F5E009DFB01 /* QuizEngine_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizEngine_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECA7FBD2523C881009E592B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 				9EF615F52425695A00CEB7A2 /* Info.plist */,
 				9EF6160E24256BC100CEB7A2 /* Flow.swift */,
 				9ECA7FBD2523C881009E592B /* Result.swift */,
+				9E5C7A8625BC774C002EDF70 /* Question.swift */,
 				9ECA7FBF2523C8A8009E592B /* Router.swift */,
 				9ECA7FC32523D22E009E592B /* Game.swift */,
 			);
@@ -131,6 +138,7 @@
 				9EF616012425695A00CEB7A2 /* Info.plist */,
 				9EF6160C24256A1300CEB7A2 /* FlowTest.swift */,
 				9ECA7FC12523C93A009E592B /* GameTest.swift */,
+				9E5C7A8925BC790B002EDF70 /* QuestionTests.swift */,
 				9EF6160B24256A1300CEB7A2 /* QuizEngineTests-Bridging-Header.h */,
 				9ECA7FC52523D437009E592B /* RouterSpy.swift */,
 			);
@@ -311,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5C7A8825BC7758002EDF70 /* Question.swift in Sources */,
 				9E9D70402537A0E2009DFB01 /* Result.swift in Sources */,
 				9E9D70412537A0E2009DFB01 /* Router.swift in Sources */,
 				9E9D703F2537A0E2009DFB01 /* Flow.swift in Sources */,
@@ -323,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E9D703C2537A0BB009DFB01 /* FlowTest.swift in Sources */,
+				9E5C7A8B25BC790B002EDF70 /* QuestionTests.swift in Sources */,
 				9E9D703D2537A0BB009DFB01 /* GameTest.swift in Sources */,
 				9E9D703E2537A0BB009DFB01 /* RouterSpy.swift in Sources */,
 			);
@@ -332,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5C7A8725BC774D002EDF70 /* Question.swift in Sources */,
 				9ECA7FBE2523C881009E592B /* Result.swift in Sources */,
 				9ECA7FC02523C8A8009E592B /* Router.swift in Sources */,
 				9EF6160F24256BC100CEB7A2 /* Flow.swift in Sources */,
@@ -344,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EF6160D24256A1300CEB7A2 /* FlowTest.swift in Sources */,
+				9E5C7A8A25BC790B002EDF70 /* QuestionTests.swift in Sources */,
 				9ECA7FC22523C93A009E592B /* GameTest.swift in Sources */,
 				9ECA7FC62523D437009E592B /* RouterSpy.swift in Sources */,
 			);
