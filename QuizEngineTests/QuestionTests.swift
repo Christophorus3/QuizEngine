@@ -28,7 +28,6 @@ class QuestionTests: XCTestCase {
     
     func testEqualSingleAnswerIsEqual() {
         let type = "a string"
-        let sut = Question.singleAnswer(type)
         
         XCTAssertEqual(Question.singleAnswer(type), Question.singleAnswer(type))
     }
